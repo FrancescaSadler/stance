@@ -76,7 +76,7 @@ module.exports = function(app) {
         } else if ((scoresArr[i] <= scoresArr[bestMatch2]) && (bestMatch2 > bestMatch1)) {
             bestMatch2 = i; 
             console.log("bestmatch2: " + bestMatch2)
-        }
+        } 
     }
 
     
