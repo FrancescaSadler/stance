@@ -54,7 +54,7 @@ module.exports = function(app) {
     app.post("/api/voters", function (req, res) {
         var userScore = req.body.scores;
         var scoresArr = [];
-        var bestMatch = 0;
+        var bestMatch = 0; // will need multiple best matches to rank top candidate matches
 
     for (var i = 0; i < candidates.length; i++) {
         var scoreDiff = 0;
