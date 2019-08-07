@@ -1,11 +1,8 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "root",
-=======
-    "password": null,
->>>>>>> af92495472393c61ec5924e1bb45c0b27fb6dfd2
+    "port": 3306,
     "database": "stance_db",
     "host": "localhost",
     "dialect": "mysql"
