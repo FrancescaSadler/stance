@@ -2,15 +2,17 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  app.get("/api/voters", function(req, res) {
+    db.Voter.findAll({
+
+    }).then(function(voters) {
+      res.json(voters);
     });
   });
 
   // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
+  app.post("/api/voters", function(req, res) {
+    db.Voter.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
@@ -36,6 +38,20 @@ module.exports = function(app) {
       }
     }).then(function(dbExample) {
       res.json(dbExample);
+    });
+  });
+
+  // CANDIDATES
+
+  app.get("/api/candidates", function(req, res) {
+    db.Candidate.findAll({}).then(function(candidates) {
+      res.json(candidates);
+    });
+  });
+
+  app.post("/api/candidates", function(req, res) {
+    db.Candidate.create(req.body).then(function(candidates) {
+      res.json(candidates);
     });
   });
 
@@ -88,18 +104,18 @@ module.exports = function(app) {
 //         }
 //         scoresArr.push(scoreDiff);
 //     } 
-    app.post("/api/voters", function (req, res) {
-        var userScore = req.body.scores;
-        var scoresArr = [];
-        var bestMatch = 0; // will need multiple best matches to rank top candidate matches
+    // app.post("/api/voters", function (req, res) {
+    //     var userScore = req.body.scores;
+    //     var scoresArr = [];
+    //     var bestMatch = 0; // will need multiple best matches to rank top candidate matches
 
-    for (var i = 0; i < candidates.length; i++) {
-        var scoreDiff = 0;
-        for (var j = 0; j < userScore.length; j++) {
-            scoreDiff += (Math.abs(parseInt(candidates[i].scores[j]) - parseInt(userScore[j])))
-        }
-        scoresArr.push(scoreDiff);
-    }});
+    // for (var i = 0; i < candidates.length; i++) {
+    //     var scoreDiff = 0;
+    //     for (var j = 0; j < userScore.length; j++) {
+    //         scoreDiff += (Math.abs(parseInt(candidates[i].scores[j]) - parseInt(userScore[j])))
+    //     }
+    //     scoresArr.push(scoreDiff);
+    // }});
     
 //     for (var i = 0; i < scoresArr.length; i++) {
 //         if (scoresArr[i] <= scoresArr[bestMatch]) {
