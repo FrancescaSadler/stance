@@ -12,6 +12,8 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/voters", function(req, res) {
+    console.log("API voters route was hit");
+    console.log(req.body);
     db.Voter.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
