@@ -6,14 +6,14 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveVoter: function(voter) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/voters",
+      data: JSON.stringify(voter)
     });
   },
   getExamples: function() {
@@ -61,21 +61,24 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+function handleFormSubmit(event) {
+  console.log("handleformsubmit function ran");
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var newVoter = {
+    firstName: $("#exampleFormControlInput1").val().trim(),
+    scores: [$("#exampleFormControlSelect1").val(), $("#exampleFormControlSelect2").val(), $("#exampleFormControlSelect3").val(), $("#exampleFormControlSelect4").val(), $("#exampleFormControlSelect5").val(), $("#exampleFormControlSelect6").val(), $("#exampleFormControlSelect7").val(), $("#exampleFormControlSelect8").val(), $("#exampleFormControlSelect9").val(), $("#exampleFormControlSelect10").val(), $("#exampleFormControlSelect12").val(),  $("#exampleFormControlSelect13").val(), $("#exampleFormControlSelect14").val(), $("#exampleFormControlSelect15").val(), $("#exampleFormControlSelect16").val(), $("#exampleFormControlSelect17").val(), $("#exampleFormControlSelect18").val(), $("#exampleFormControlSelect19").val(), $("#exampleFormControlSelect20").val(), $("#exampleFormControlSelect21").val(), $("#exampleFormControlSelect22").val(), $("#exampleFormControlSelect23").val(), $("#exampleFormControlSelect24").val(), $("#exampleFormControlSelect25").val()]
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+  // if (!(example.text && example.description)) {
+  //   alert("You must enter an example text and description!");
+  //   return;
+  // }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveVoter(newVoter).then(function() {
+    // refreshExamples();
+    console.log("API saved voter ren");
+    window.location = "/results";
   });
 
   $exampleText.val("");
@@ -95,5 +98,5 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$("#voter-survey").on("submit", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
