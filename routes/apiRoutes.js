@@ -1,61 +1,82 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Get all examples
-  app.get("/api/voters", function(req, res) {
+  app.get("/api/voters", function (req, res) {
     db.Voter.findAll({
 
-    }).then(function(voters) {
+    }).then(function (voters) {
       res.json(voters);
     });
   });
 
   // Create a new example
+<<<<<<< HEAD
   app.post("/api/voters", function(req, res) {
     console.log("API voters route was hit");
     console.log(req.body);
     db.Voter.create(req.body).then(function(dbExample) {
+=======
+  app.post("/api/voters", function (req, res) {
+    db.Voter.create(req.body).then(function (dbExample) {
+>>>>>>> 3b0bdc4225cdc199a20ff5d11de8db896fb9f9a7
       res.json(dbExample);
     });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+  app.delete("/api/examples/:id", function (req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
       res.json(dbExample);
     });
   });
 
   // --note that PUT route was added by EGF from a todos list example
   // PUT route for updating examples. We can get the updated example from req.body 
-  app.put("/api/examples", function(req, res) {
-  // Update takes in an object describing the properties we want to update, and
+  app.put("/api/examples", function (req, res) {
+    // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.Example.update({
       text: req.body.text,
       complete: req.body.complete
     }, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbExample) {
-      res.json(dbExample);
-    });
+        where: {
+          id: req.body.id
+        }
+      }).then(function (dbExample) {
+        res.json(dbExample);
+      });
   });
 
   // CANDIDATES
 
-  app.get("/api/candidates", function(req, res) {
-    db.Candidate.findAll({}).then(function(candidates) {
+  app.get("/api/candidates", function (req, res) {
+    db.Candidate.findAll({}).then(function (candidates) {
       res.json(candidates);
     });
   });
 
-  app.post("/api/candidates", function(req, res) {
-    db.Candidate.create(req.body).then(function(candidates) {
-      res.json(candidates);
-    });
+  app.post("/api/candidates", function (req, res) {
+    var { routeName, candidateName, scores }
+      = req.body;
+
+    var newCandidate = {
+      routeName,
+      candidateName,
+      scores,
+    };
+
+
+    db.Candidate.create(newCandidate).then(function (Candidate) {
+      console.log(`Added contact ${Candidate.candidateName} ${Candidate.scores}`)
+      res.json({ id: Candidate.id })
+    })
   });
+
+  // CANDIDATE
+  app.post("/api/candidate/:id", function(req, res) {
+    db.Candidate.create({where: {id: req.params.id}}).then()
+  })
 
 };
 
@@ -118,7 +139,7 @@ module.exports = function(app) {
     //     }
     //     scoresArr.push(scoreDiff);
     // }});
-    
+
 //     for (var i = 0; i < scoresArr.length; i++) {
 //         if (scoresArr[i] <= scoresArr[bestMatch]) {
 //             bestMatch1 = i;
@@ -129,7 +150,7 @@ module.exports = function(app) {
 //         } 
 //     }
 
-    
+
 //     var bestCandidate = candidates[bestMatch];
 //     res.json(bestCandidate);
 //         voters.push(req.body);
