@@ -66,33 +66,8 @@ function handleFormSubmit(event) {
   event.preventDefault();
 
   var newVoter = {
-    name: $("#exampleFormControlInput1").val().trim(),
-    question1: $("#exampleFormControlSelect1").val(),
-    question2: $("#exampleFormControlSelect2").val(),
-    question3: $("#exampleFormControlSelect3").val(),
-    question4: $("#exampleFormControlSelect4").val(),
-    question5: $("#exampleFormControlSelect5").val(),
-    question6: $("#exampleFormControlSelect6").val(),
-    question7: $("#exampleFormControlSelect7").val(),
-    question8: $("#exampleFormControlSelect8").val(),
-    question9: $("#exampleFormControlSelect9").val(),
-    question10: $("#exampleFormControlSelect10").val(),
-    question11: $("#exampleFormControlSelect11").val(),
-    question12: $("#exampleFormControlSelect12").val(),
-    question13: $("#exampleFormControlSelect13").val(),
-    question14: $("#exampleFormControlSelect14").val(),
-    question15: $("#exampleFormControlSelect15").val(),
-    question16: $("#exampleFormControlSelect16").val(),
-    question17: $("#exampleFormControlSelect17").val(),
-    question18: $("#exampleFormControlSelect18").val(),
-    question19: $("#exampleFormControlSelect19").val(),
-    question20: $("#exampleFormControlSelect20").val(),
-    question21: $("#exampleFormControlSelect21").val(),
-    question22: $("#exampleFormControlSelect22").val(),
-    question23: $("#exampleFormControlSelect23").val(),
-    question24: $("#exampleFormControlSelect24").val(),
-    question25: $("#exampleFormControlSelect25").val(),
-
+    firstName: $("#exampleFormControlInput1").val().trim(),
+    scores: [$("#exampleFormControlSelect1").val(), $("#exampleFormControlSelect2").val(), $("#exampleFormControlSelect3").val(), $("#exampleFormControlSelect4").val(), $("#exampleFormControlSelect5").val(), $("#exampleFormControlSelect6").val(), $("#exampleFormControlSelect7").val(), $("#exampleFormControlSelect8").val(), $("#exampleFormControlSelect9").val(), $("#exampleFormControlSelect10").val(), $("#exampleFormControlSelect12").val(),  $("#exampleFormControlSelect13").val(), $("#exampleFormControlSelect14").val(), $("#exampleFormControlSelect15").val(), $("#exampleFormControlSelect16").val(), $("#exampleFormControlSelect17").val(), $("#exampleFormControlSelect18").val(), $("#exampleFormControlSelect19").val(), $("#exampleFormControlSelect20").val(), $("#exampleFormControlSelect21").val(), $("#exampleFormControlSelect22").val(), $("#exampleFormControlSelect23").val(), $("#exampleFormControlSelect24").val(), $("#exampleFormControlSelect25").val()]
   };
 
   // if (!(example.text && example.description)) {
@@ -123,5 +98,5 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$("#voter-survey").on("submit", handleFormSubmit());
+$("#voter-survey").on("submit", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
