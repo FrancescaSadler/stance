@@ -1,8 +1,14 @@
 <div>
+	{{#each voter}}
+		{{name}}: {{score}}
+	{{/each}}
+</div>
+
+{{!-- <div>
 	<h1>
 		{{firstName}}'s Candidate Match Results
 	</h1>
-</div>
+</div> --}}
 
 <table class="table">
 	<thead class="thead-dark">
@@ -17,7 +23,7 @@
 			<th>Inslee</th>
 			<th>Biden</th>
 			<th>Delaney</th>
-			<th>Hickenloop</th>
+			<th>Hickenlooper</th>
 			<th>Castro</th>
 			<th>Harris</th>
 			<th>Gillibrand</th>
@@ -40,9 +46,9 @@
 				<td>{{jayInslee}}</td>
 				<td>{{joeBiden}}</td>
 				<td>{{johnDelaney}}</td>
-				<td>{{johnHickenloop}}</td>
+				<td>{{johnHickenlooper}}</td>
 				<td>{{kamalaHarris}}</td>
-				<td>{{kristenGillibrand}}</td>
+				<td>{{kirstenGillibrand}}</td>
 				<td>{{marianneWilliamson}}</td>
 				<td>{{peteButtigieg}}</td>
 				<td>{{tulsiGabbard}}</td>
