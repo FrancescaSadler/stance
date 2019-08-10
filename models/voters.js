@@ -72,6 +72,16 @@ module.exports = function (sequelize, DataTypes) {
     },
     tulsiGabbard: {
       type: DataTypes.STRING
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: new Date()
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: new Date()
     }
   });
   return Voter;
