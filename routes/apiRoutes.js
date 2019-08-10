@@ -165,15 +165,33 @@ module.exports = function (app) {
     db.Candidate.create({ where: { id: req.params.id } }).then()
   })
 
+
+
+  // RESULTS
+  app.get("/results/:id", function(req, res) {
+    var id = req.params.id;
+    // db.Voter.findByPk({ where: { id: req.params.id } }).then(function(dbExample) {
+      db.Voter.findByPk(id).then(function(dbVoter) {
+
+        console.log()
+        // LODASH
+
+        var hbsObj = {
+          // voter: all the lo-dash shit
+        };
+
+        res.render("results", hbsObj);
+
+      })
+    //   res.render("example", {
+    //     example: dbExample
+    //   });
+    // });
+  });
+
 };
 
-app.get("/api/contacts", function (req, res) {
-  db.Contact.findAll({}).then(function (contacts) {
-    res.json(contacts);
-  }).catch(function (err) {
-    console.log(err);
-  });
-});
+
 
 //=====================================================================================================
 /// this is Gwen's attempt to reuse the contacts code to render results on a handlebars results page
@@ -207,4 +225,4 @@ app.get("/api/contacts", function (req, res) {
 // });
   //==================================================================================================
 
-  app.get()
+  // app.get()
