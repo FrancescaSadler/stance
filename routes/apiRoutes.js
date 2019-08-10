@@ -44,7 +44,7 @@ module.exports = function (app) {
   });
 
   // Create a new example
-  app.post("/api/voters", function(req, res) {
+  app.post("/api/voters", function (req, res) {
     // console.log("API voters route was hit");
     // console.log(req.body);
     var firstName = req.body.name;
@@ -64,9 +64,9 @@ module.exports = function (app) {
     for (var i = 0; i < candidates.length; i++) {
       var scoreDiff = 0;
       var candidateScores = candidates[i].scores.split(",");
-        console.log(`candidate scores: ${candidateScores}`);
-        for (var j = 0; j < candidateScores.length; j++) {
-            scoreDiff += (Math.abs(parseInt(candidateScores[j]) - parseInt(userScore[j])))
+      console.log(`candidate scores: ${candidateScores}`);
+      for (var j = 0; j < candidateScores.length; j++) {
+        scoreDiff += (Math.abs(parseInt(candidateScores[j]) - parseInt(userScore[j])))
         // console.log(scoreDiff);
       }
       
@@ -161,8 +161,50 @@ module.exports = function (app) {
   });
 
   // CANDIDATE
-  app.post("/api/candidate/:id", function(req, res) {
-    db.Candidate.create({where: {id: req.params.id}}).then()
+  app.post("/api/candidate/:id", function (req, res) {
+    db.Candidate.create({ where: { id: req.params.id } }).then()
   })
 
 };
+
+app.get("/api/contacts", function (req, res) {
+  db.Contact.findAll({}).then(function (contacts) {
+    res.json(contacts);
+  }).catch(function (err) {
+    console.log(err);
+  });
+});
+
+//=====================================================================================================
+/// this is Gwen's attempt to reuse the contacts code to render results on a handlebars results page
+// this route should add a new contact to the table
+// app.post("/api/results", function (req, res) {
+//   db.Voter.create({
+//     amyKlobuchar: req.body.amyKlobuchar,
+//     andrewYang: req.body.andrewYang,
+//     betoOrourke: req.body.betoOrourke,
+//     coryBooker: req.body.coryBooker,
+//     donaldTrump: req.body.donaldTrump,
+//     elizabethWarren: req.body.elizabethWarren,
+//     jayInslee: req.body.jayInslee,
+//     joeBiden: req.body.joeBiden,
+//     johnDelaney: req.body.johnDelaney,
+//     johnHickenloop: req.body.johnHickenloop,
+//     julianCastro: req.body.julianCastro,
+//     kamalaHarris: req.body.kamalaHarris,
+//     kristenGillibrand: req.body.kristenGillibrand,
+//     marianneWilliamson: req.body.marianneWilliamson,
+//     peteButtigieg: req.body.peteButtigieg,
+//     tulsiGabbard: req.body.tulsiGabbard,
+
+//   }).then(function (newVoter) {
+//     console.log("New Voter Result:");
+//     console.log(newVoter);
+//     res.json(newVoter);
+//   }).catch(function (err) {
+//     console.log(err);
+//   });
+// });
+  //==================================================================================================
+
+  app.get()
