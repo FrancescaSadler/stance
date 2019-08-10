@@ -79,22 +79,22 @@ module.exports = function (app) {
     var newVoter = {
       firstName: firstName,
       amyKlobuchar: `${100 - scoresArr[0]}`,
-      andrewYang: `${scoresArr[1]}`,
-      bernieSanders: `${scoresArr[2]}`,
-      betoOrourke: `${scoresArr[3]}`,
-      coryBooker: `${scoresArr[4]}`,
-      donaldTrump: `${scoresArr[5]}`,
-      elizabethWarren: `${scoresArr[6]}`,
-      jayInslee: `${scoresArr[7]}`,
-      joeBiden: `${scoresArr[8]}`,
-      johnDelaney: `${scoresArr[9]}`, 
-      johnHickenloop: `${scoresArr[10]}`,
-      julianCastro: `${scoresArr[11]}`,
-      kamalaHarris: `${scoresArr[12]}`,
-      kristenGillibrand: `${scoresArr[13]}`,
-      marianneWilliamson: `${scoresArr[14]}`,
-      peteButtigieg: `${scoresArr[15]}`,
-      tulsiGabbard: `${scoresArr[16]}`
+      andrewYang: `${100 - scoresArr[1]}`,
+      bernieSanders: `${100 - scoresArr[2]}`,
+      betoOrourke: `${100 - scoresArr[3]}`,
+      coryBooker: `${100 - scoresArr[4]}`,
+      donaldTrump: `${100 - scoresArr[5]}`,
+      elizabethWarren: `${100 - scoresArr[6]}`,
+      jayInslee: `${100 - scoresArr[7]}`,
+      joeBiden: `${100 - scoresArr[8]}`,
+      johnDelaney: `${100 - scoresArr[9]}`, 
+      johnHickenloop: `${100 - scoresArr[10]}`,
+      julianCastro: `${100 - scoresArr[11]}`,
+      kamalaHarris: `${100 - scoresArr[12]}`,
+      kristenGillibrand: `${100 - scoresArr[13]}`,
+      marianneWilliamson: `${100 - scoresArr[14]}`,
+      peteButtigieg: `${100 - scoresArr[15]}`,
+      tulsiGabbard: `${100 - scoresArr[16]}`
     };
     console.log(`new Voter created WOO: ${newVoter}`)
     
