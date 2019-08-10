@@ -77,12 +77,11 @@
         ]
       };
 
-      console.log(userData);
 
       // AJAX post the data to the voters API.
       $.post("/api/voters", userData, function(userData) {
       
-        
+
         // Grab the result from the AJAX post so that the best candidates match's name and photo are displayed.
         //WE'LL WANT TO UPDATE THIS TO PULL THE TOP 5 CANDIDATES
         // $("#match-name").text(data.name);
@@ -90,6 +89,8 @@
 
         // // Show the modal with the best match
         // $("#results-modal").modal("toggle");
+        console.log(userData.id);
+        window.location= `/results/${userData.id}`
 
       });
     } else {
