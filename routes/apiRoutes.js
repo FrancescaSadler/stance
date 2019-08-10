@@ -168,28 +168,28 @@ module.exports = function (app) {
 
 
   // RESULTS
-  app.get("/results/:id", function(req, res) {
-    var id = req.params.id;
-    // db.Voter.findByPk({ where: { id: req.params.id } }).then(function(dbExample) {
-      db.Voter.findByPk(id).then(function(dbVoter) {
+//   app.get("/results/:id", function(req, res) {
+//     var id = req.params.id;
+//     // db.Voter.findByPk({ where: { id: req.params.id } }).then(function(dbExample) {
+//       db.Voter.findByPk(id).then(function(dbVoter) {
 
-        console.log()
-        // LODASH
+//         console.log()
+//         // LODASH
 
-        var hbsObj = {
-          // voter: all the lo-dash shit
-        };
+//         var hbsObj = {
+//           // voter: all the lo-dash shit
+//         };
 
-        res.render("results", hbsObj);
+//         res.render("results", hbsObj);
 
-      })
-    //   res.render("example", {
-    //     example: dbExample
-    //   });
-    // });
-  });
+//       })
+//     //   res.render("example", {
+//     //     example: dbExample
+//     //   });
+//     // });
+//   });
 
-};
+// };
 
 
 
@@ -225,4 +225,14 @@ module.exports = function (app) {
 // });
   //==================================================================================================
 
-  // app.get()
+  app.get("/results/:id", function(rec,res){
+    db.Voter.findOne({
+      where: {
+        id: rec.params.id,
+      }
+    }).then(function(dbVoter){
+      var hbsObj = {voter: dbVoter};
+      res.render("results", hbsObj);
+    });
+  });
+};
