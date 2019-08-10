@@ -1,4 +1,5 @@
 var db = require("../models");
+var _ = require('lodash');
 
 // var candidates = [{
 //   "id": 1,
@@ -88,10 +89,10 @@ module.exports = function (app) {
       jayInslee: `${100 - scoresArr[7]}`,
       joeBiden: `${100 - scoresArr[8]}`,
       johnDelaney: `${100 - scoresArr[9]}`, 
-      johnHickenloop: `${100 - scoresArr[10]}`,
+      johnHickenlooper: `${100 - scoresArr[10]}`,
       julianCastro: `${100 - scoresArr[11]}`,
       kamalaHarris: `${100 - scoresArr[12]}`,
-      kristenGillibrand: `${100 - scoresArr[13]}`,
+      kirstenGillibrand: `${100 - scoresArr[13]}`,
       marianneWilliamson: `${100 - scoresArr[14]}`,
       peteButtigieg: `${100 - scoresArr[15]}`,
       tulsiGabbard: `${100 - scoresArr[16]}`
@@ -111,29 +112,6 @@ module.exports = function (app) {
     // })
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function (req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // --note that PUT route was added by EGF from a todos list example
-  // PUT route for updating examples. We can get the updated example from req.body 
-  app.put("/api/examples", function (req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.Example.update({
-      text: req.body.text,
-      complete: req.body.complete
-    }, {
-        where: {
-          id: req.body.id
-        }
-      }).then(function (dbExample) {
-        res.json(dbExample);
-      });
-  });
 
   // CANDIDATES
 
@@ -231,7 +209,28 @@ module.exports = function (app) {
         id: rec.params.id,
       }
     }).then(function(dbVoter){
-      var hbsObj = {voter: dbVoter};
+      var sortingObj = [
+      {"name": "amyKlobuchar", "score": `${parseFloat(dbVoter.dataValues.amyKlobuchar)}`},
+      {"name": "andrewYang", "score": `${parseFloat(dbVoter.dataValues.andrewYang)}`},
+      {"name": "bernieSanders", "score": `${parseFloat(dbVoter.dataValues.bernieSanders)}`},
+      {"name": "betoOrourke", "score": `${parseFloat(dbVoter.dataValues.betoOrourke)}`},
+      {"name": "coryBooker", "score": `${parseFloat(dbVoter.dataValues.coryBooker)}`},
+      {"name": "donaldTrump", "score": `${parseFloat(dbVoter.dataValues.donaldTrump)}`},
+      {"name": "elizabethWarren", "score": `${parseFloat(dbVoter.dataValues.elizabethWarren)}`},
+      {"name": "jayInslee", "score": `${parseFloat(dbVoter.dataValues.jayInslee)}`},
+      {"name": "joeBiden", "score": `${parseFloat(dbVoter.dataValues.joeBiden)}`},
+      {"name": "johnDelaney", "score": `${parseFloat(dbVoter.dataValues.johnDelaney)}`},
+      {"name": "johnHickenlooper", "score": `${parseFloat(dbVoter.dataValues.johnHickenlooper)}`},
+      {"name": "julianCastro", "score": `${parseFloat(dbVoter.dataValues.julianCastro)}`},
+      {"name": "kamalaHarris", "score": `${parseFloat(dbVoter.dataValues.kamalaHarris)}`},
+      {"name": "kirstenGillibrand", "score": `${parseFloat(dbVoter.dataValues.kirstenGillibrand)}`},
+      {"name": "marianneWilliamson", "score": `${parseFloat(dbVoter.dataValues.marianneWilliamson)}`},
+      {"name": "peteButtigieg", "score": `${parseFloat(dbVoter.dataValues.peteButtigieg)}`},
+      {"name": "tulsiGabbard", "score": `${parseFloat(dbVoter.dataValues.tulsiGabbard)}`}
+    ];
+
+      var sorted = _.orderBy(sortingObj, ["score"], ['desc']);
+      var hbsObj = {voter: sorted};
       res.render("results", hbsObj);
     });
   });
