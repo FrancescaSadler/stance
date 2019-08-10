@@ -1,0 +1,52 @@
+<div>
+	<h1>
+		{{firstName}}'s {{#if type}}{{type}}{{/if}} Candidate Match Results
+	</h1>
+</div>
+
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th>Klobuchar</th>
+			<th>Yang</th>
+			<th>Sanders</th>
+			<th>Orourke</th>
+            <th>Booker</th>
+			<th>Trump</th>
+			<th>Warren</th>
+			<th>Inslee</th>
+			<th>Biden</th>
+			<th>Delaney</th>
+			<th>Hickenloop</th>
+			<th>Castro</th>
+			<th>Harris</th>
+			<th>Gillibrand</th>
+			<th>Williamson</th>
+			<th>Buttigieg</th>
+			<th>Gabbard</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{!-- Our Handlebars code goes here! --}}
+		{{#each voter}}
+			<tr data-id="{{id}}">
+				<td>{{amyKlobuchar}}</td>
+				<td>{{andrewYang}}</td>
+				<td>{{bernieSanders}}</td>
+				<td>{{betoOrourke}}</td>
+				<td>{{coryBooker}}</td>
+				<td>{{donaldTrump}}</td>
+				<td>{{elizabethWarren}}</td>
+				<td>{{jayInslee}}</td>
+				<td>{{joeBiden}}</td>
+				<td>{{johnDelaney}}</td>
+				<td>{{johnHickenloop}}</td>
+				<td>{{kamalaHarris}}</td>
+				<td>{{kristenGillibrand}}</td>
+				<td>{{marianneWilliamson}}</td>
+				<td>{{peteButtigieg}}</td>
+				<td>{{tulsiGabbard}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+    
