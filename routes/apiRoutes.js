@@ -233,11 +233,6 @@ module.exports = function (app) {
     }).then(function(dbVoter){
       var hbsObj = {voter: dbVoter};
       res.render("results", hbsObj);
-<<<<<<< HEAD
-    })
-  })
-=======
     });
   });
 };
->>>>>>> 7c2b79803a9f54113be46105199b24da8665262f
