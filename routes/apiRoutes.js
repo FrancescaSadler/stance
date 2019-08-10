@@ -49,13 +49,8 @@ module.exports = function (app) {
     // console.log(req.body);
     var userScore = req.body['scores[]'];
     var scoresArr = [];
-<<<<<<< HEAD
-
-
-=======
   // db.Candidates.findAll().then(function(candidates))
     console.log(req.body);
->>>>>>> df68dd316ce844d5d95ae26c9cf73dda8152da41
     for (var i = 0; i < candidates.length; i++) {
       var scoreDiff = 0;
       var candidateScores = candidates[i].scores.split(",");
@@ -147,31 +142,33 @@ app.get("/api/contacts", function (req, res) {
 //=====================================================================================================
 /// this is Gwen's attempt to reuse the contacts code to render results on a handlebars results page
 // this route should add a new contact to the table
-app.post("/api/results", function (req, res) {
-  db.Voter.create({
-    amyKlobuchar: req.body.amyKlobuchar,
-    andrewYang: req.body.andrewYang,
-    betoOrourke: req.body.betoOrourke,
-    coryBooker: req.body.coryBooker,
-    donaldTrump: req.body.donaldTrump,
-    elizabethWarren: req.body.elizabethWarren,
-    jayInslee: req.body.jayInslee,
-    joeBiden: req.body.joeBiden,
-    johnDelaney: req.body.johnDelaney,
-    johnHickenloop: req.body.johnHickenloop,
-    julianCastro: req.body.julianCastro,
-    kamalaHarris: req.body.kamalaHarris,
-    kristenGillibrand: req.body.kristenGillibrand,
-    marianneWilliamson: req.body.marianneWilliamson,
-    peteButtigieg: req.body.peteButtigieg,
-    tulsiGabbard: req.body.tulsiGabbard,
+// app.post("/api/results", function (req, res) {
+//   db.Voter.create({
+//     amyKlobuchar: req.body.amyKlobuchar,
+//     andrewYang: req.body.andrewYang,
+//     betoOrourke: req.body.betoOrourke,
+//     coryBooker: req.body.coryBooker,
+//     donaldTrump: req.body.donaldTrump,
+//     elizabethWarren: req.body.elizabethWarren,
+//     jayInslee: req.body.jayInslee,
+//     joeBiden: req.body.joeBiden,
+//     johnDelaney: req.body.johnDelaney,
+//     johnHickenloop: req.body.johnHickenloop,
+//     julianCastro: req.body.julianCastro,
+//     kamalaHarris: req.body.kamalaHarris,
+//     kristenGillibrand: req.body.kristenGillibrand,
+//     marianneWilliamson: req.body.marianneWilliamson,
+//     peteButtigieg: req.body.peteButtigieg,
+//     tulsiGabbard: req.body.tulsiGabbard,
 
-  }).then(function (newVoter) {
-    console.log("New Voter Result:");
-    console.log(newVoter);
-    res.json(newVoter);
-  }).catch(function (err) {
-    console.log(err);
-  });
-});
+//   }).then(function (newVoter) {
+//     console.log("New Voter Result:");
+//     console.log(newVoter);
+//     res.json(newVoter);
+//   }).catch(function (err) {
+//     console.log(err);
+//   });
+// });
   //==================================================================================================
+
+  app.get()
