@@ -1,37 +1,37 @@
 var db = require("../models");
 
-var candidates = [{
-  "id": 1,
-  "routeName": "amyklobuchar",
-  "candidateName": "Amy Klobuchar",
-  "scores": "1,5,1,4,2,2,4,1,5,1,1,2,3,2,3,2,5,4,1,4,1,3,5,2,1",
-  "createdAt": "2019-08-08T23:20:59.000Z",
-  "updatedAt": "2019-08-08T23:20:59.000Z"
-},
-{
-  "id": 2,
-  "routeName": "andrewYang",
-  "candidateName": "Andrew Yang",
-  "scores": "2,2,5,2,1,1,3,1,3,5,2,4,3,4,3,3,1,5,1,1,1,5,5,2,1",
-  "createdAt": "2019-08-08T23:21:30.000Z",
-  "updatedAt": "2019-08-08T23:21:30.000Z"
-},
-{
-  "id": 3,
-  "routeName": "bernieSanders",
-  "candidateName": "Bernie Sanders",
-  "scores": "1,2,5,5,1,1,1,1,1,1,1,2,1,2,1,1,1,5,2,4,1,1,1,1,1",
-  "createdAt": "2019-08-08T23:27:47.000Z",
-  "updatedAt": "2019-08-08T23:27:47.000Z"
-},
-{
-  "id": 4,
-  "routeName": "betoOrourke",
-  "candidateName": "Beto O'rourke",
-  "scores": "1,1,1,2,2,1,3,1,3,5,2,2,3,1,1,1,3,5,2,2,1,3,5,2,1",
-  "createdAt": "2019-08-08T23:29:00.000Z",
-  "updatedAt": "2019-08-08T23:29:00.000Z"
-}];
+// var candidates = [{
+//   "id": 1,
+//   "routeName": "amyklobuchar",
+//   "candidateName": "Amy Klobuchar",
+//   "scores": "1,5,1,4,2,2,4,1,5,1,1,2,3,2,3,2,5,4,1,4,1,3,5,2,1",
+//   "createdAt": "2019-08-08T23:20:59.000Z",
+//   "updatedAt": "2019-08-08T23:20:59.000Z"
+// },
+// {
+//   "id": 2,
+//   "routeName": "andrewYang",
+//   "candidateName": "Andrew Yang",
+//   "scores": "2,2,5,2,1,1,3,1,3,5,2,4,3,4,3,3,1,5,1,1,1,5,5,2,1",
+//   "createdAt": "2019-08-08T23:21:30.000Z",
+//   "updatedAt": "2019-08-08T23:21:30.000Z"
+// },
+// {
+//   "id": 3,
+//   "routeName": "bernieSanders",
+//   "candidateName": "Bernie Sanders",
+//   "scores": "1,2,5,5,1,1,1,1,1,1,1,2,1,2,1,1,1,5,2,4,1,1,1,1,1",
+//   "createdAt": "2019-08-08T23:27:47.000Z",
+//   "updatedAt": "2019-08-08T23:27:47.000Z"
+// },
+// {
+//   "id": 4,
+//   "routeName": "betoOrourke",
+//   "candidateName": "Beto O'rourke",
+//   "scores": "1,1,1,2,2,1,3,1,3,5,2,2,3,1,1,1,3,5,2,2,1,3,5,2,1",
+//   "createdAt": "2019-08-08T23:29:00.000Z",
+//   "updatedAt": "2019-08-08T23:29:00.000Z"
+// }];
 
 module.exports = function (app) {
   // Get all examples
@@ -49,7 +49,7 @@ module.exports = function (app) {
     // console.log(req.body);
     var userScore = req.body['scores[]'];
     var scoresArr = [];
-  
+  // db.Candidates.findAll().then(function(candidates))
     console.log(req.body);
     for (var i = 0; i < candidates.length; i++) {
       var scoreDiff = 0;
