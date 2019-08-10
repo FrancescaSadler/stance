@@ -47,10 +47,10 @@ module.exports = function (app) {
   app.post("/api/voters", function(req, res) {
     // console.log("API voters route was hit");
     // console.log(req.body);
-    var userScore = req.body.scores;
+    var userScore = req.body['scores[]'];
     var scoresArr = [];
   
-    
+    console.log(req.body);
     for (var i = 0; i < candidates.length; i++) {
       var scoreDiff = 0;
       var candidateScores = candidates[i].scores.split(",");
