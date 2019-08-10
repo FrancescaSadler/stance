@@ -171,4 +171,13 @@ app.get("/api/contacts", function (req, res) {
 // });
   //==================================================================================================
 
-  app.get()
+  app.get("/results/:id", function(rec,res){
+    db.Voter.findOne({
+      where: {
+        id: rec.params.id,
+      }
+    }).then(function(dbVoter){
+      var hbsObj = {voter: dbVoter};
+      res.render("results", hbsObj);
+    })
+  })
