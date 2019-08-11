@@ -74,3 +74,5 @@
       alert("Please fill out all fields before submitting!");
     }
   });
+
+  //playing around 
