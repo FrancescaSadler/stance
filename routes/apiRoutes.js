@@ -231,6 +231,9 @@ module.exports = function (app) {
         id: rec.params.id,
       }
     }).then(function(dbVoter){
+      var sortingObj = []; 
+      for(i =0, i < dbVoter.length, i++){
+      }
       var hbsObj = {voter: dbVoter};
       res.render("results", hbsObj);
     });
