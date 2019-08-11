@@ -8,8 +8,6 @@ The target population for this app is anyone who wants to know which candidate t
 
 To start, voters take a brief quiz covering a broad swath of political hot button issues. Upon submitting, the voter's scores are compared to the scores of 17 candidates for the 2020 Presidential Election. Voters are returned images and names of their candidates, starting with their closest match running through their least similar match. 
 
-Plans for future development include a tinder-style swiping option in favor of or disagreement with actual statements and opinions from various candidates. Candidates' identifying information from these statements is removed, thus reducing any implicit bias and giving the voter a more accurrate political match based on the issues themselves.
-
  
 #####_Tech Stack:_
 

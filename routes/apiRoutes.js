@@ -1,37 +1,5 @@
 var db = require("../models");
-
-// var candidates = [{
-//   "id": 1,
-//   "routeName": "amyklobuchar",
-//   "candidateName": "Amy Klobuchar",
-//   "scores": "1,5,1,4,2,2,4,1,5,1,1,2,3,2,3,2,5,4,1,4,1,3,5,2,1",
-//   "createdAt": "2019-08-08T23:20:59.000Z",
-//   "updatedAt": "2019-08-08T23:20:59.000Z"
-// },
-// {
-//   "id": 2,
-//   "routeName": "andrewYang",
-//   "candidateName": "Andrew Yang",
-//   "scores": "2,2,5,2,1,1,3,1,3,5,2,4,3,4,3,3,1,5,1,1,1,5,5,2,1",
-//   "createdAt": "2019-08-08T23:21:30.000Z",
-//   "updatedAt": "2019-08-08T23:21:30.000Z"
-// },
-// {
-//   "id": 3,
-//   "routeName": "bernieSanders",
-//   "candidateName": "Bernie Sanders",
-//   "scores": "1,2,5,5,1,1,1,1,1,1,1,2,1,2,1,1,1,5,2,4,1,1,1,1,1",
-//   "createdAt": "2019-08-08T23:27:47.000Z",
-//   "updatedAt": "2019-08-08T23:27:47.000Z"
-// },
-// {
-//   "id": 4,
-//   "routeName": "betoOrourke",
-//   "candidateName": "Beto O'rourke",
-//   "scores": "1,1,1,2,2,1,3,1,3,5,2,2,3,1,1,1,3,5,2,2,1,3,5,2,1",
-//   "createdAt": "2019-08-08T23:29:00.000Z",
-//   "updatedAt": "2019-08-08T23:29:00.000Z"
-// }];
+var _ = require('lodash');
 
 module.exports = function (app) {
   // Get all examples
@@ -43,7 +11,7 @@ module.exports = function (app) {
     });
   });
 
-  // Create a new example
+  // Create a new voter
   app.post("/api/voters", function (req, res) {
     // console.log("API voters route was hit");
     // console.log(req.body);
@@ -88,10 +56,10 @@ module.exports = function (app) {
       jayInslee: `${100 - scoresArr[7]}`,
       joeBiden: `${100 - scoresArr[8]}`,
       johnDelaney: `${100 - scoresArr[9]}`, 
-      johnHickenloop: `${100 - scoresArr[10]}`,
+      johnHickenlooper: `${100 - scoresArr[10]}`,
       julianCastro: `${100 - scoresArr[11]}`,
       kamalaHarris: `${100 - scoresArr[12]}`,
-      kristenGillibrand: `${100 - scoresArr[13]}`,
+      kirstenGillibrand: `${100 - scoresArr[13]}`,
       marianneWilliamson: `${100 - scoresArr[14]}`,
       peteButtigieg: `${100 - scoresArr[15]}`,
       tulsiGabbard: `${100 - scoresArr[16]}`
@@ -103,37 +71,8 @@ module.exports = function (app) {
     });
     
   });
-    // db.Voter.create(req.body).then(function(dbExample) {
-    //   res.json(dbExample);
-    // });
-    // db.Candidate.findAll().then(function (candidates){
-    //   console.log(candidates);
-    // })
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function (req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // --note that PUT route was added by EGF from a todos list example
-  // PUT route for updating examples. We can get the updated example from req.body 
-  app.put("/api/examples", function (req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.Example.update({
-      text: req.body.text,
-      complete: req.body.complete
-    }, {
-        where: {
-          id: req.body.id
-        }
-      }).then(function (dbExample) {
-        res.json(dbExample);
-      });
-  });
 
   // CANDIDATES
 
@@ -166,75 +105,34 @@ module.exports = function (app) {
   })
 
 
-
-  // RESULTS
-//   app.get("/results/:id", function(req, res) {
-//     var id = req.params.id;
-//     // db.Voter.findByPk({ where: { id: req.params.id } }).then(function(dbExample) {
-//       db.Voter.findByPk(id).then(function(dbVoter) {
-
-//         console.log()
-//         // LODASH
-
-//         var hbsObj = {
-//           // voter: all the lo-dash shit
-//         };
-
-//         res.render("results", hbsObj);
-
-//       })
-//     //   res.render("example", {
-//     //     example: dbExample
-//     //   });
-//     // });
-//   });
-
-// };
-
-
-
-//=====================================================================================================
-/// this is Gwen's attempt to reuse the contacts code to render results on a handlebars results page
-// this route should add a new contact to the table
-// app.post("/api/results", function (req, res) {
-//   db.Voter.create({
-//     amyKlobuchar: req.body.amyKlobuchar,
-//     andrewYang: req.body.andrewYang,
-//     betoOrourke: req.body.betoOrourke,
-//     coryBooker: req.body.coryBooker,
-//     donaldTrump: req.body.donaldTrump,
-//     elizabethWarren: req.body.elizabethWarren,
-//     jayInslee: req.body.jayInslee,
-//     joeBiden: req.body.joeBiden,
-//     johnDelaney: req.body.johnDelaney,
-//     johnHickenloop: req.body.johnHickenloop,
-//     julianCastro: req.body.julianCastro,
-//     kamalaHarris: req.body.kamalaHarris,
-//     kristenGillibrand: req.body.kristenGillibrand,
-//     marianneWilliamson: req.body.marianneWilliamson,
-//     peteButtigieg: req.body.peteButtigieg,
-//     tulsiGabbard: req.body.tulsiGabbard,
-
-//   }).then(function (newVoter) {
-//     console.log("New Voter Result:");
-//     console.log(newVoter);
-//     res.json(newVoter);
-//   }).catch(function (err) {
-//     console.log(err);
-//   });
-// });
-  //==================================================================================================
-
   app.get("/results/:id", function(rec,res){
     db.Voter.findOne({
       where: {
         id: rec.params.id,
       }
     }).then(function(dbVoter){
-      var sortingObj = []; 
-      for(i =0, i < dbVoter.length, i++){
-      }
-      var hbsObj = {voter: dbVoter};
+      var sortingObj = [
+      {"name": "amyKlobuchar", "score": `${parseFloat(dbVoter.dataValues.amyKlobuchar)}`},
+      {"name": "andrewYang", "score": `${parseFloat(dbVoter.dataValues.andrewYang)}`},
+      {"name": "bernieSanders", "score": `${parseFloat(dbVoter.dataValues.bernieSanders)}`},
+      {"name": "betoOrourke", "score": `${parseFloat(dbVoter.dataValues.betoOrourke)}`},
+      {"name": "coryBooker", "score": `${parseFloat(dbVoter.dataValues.coryBooker)}`},
+      {"name": "donaldTrump", "score": `${parseFloat(dbVoter.dataValues.donaldTrump)}`},
+      {"name": "elizabethWarren", "score": `${parseFloat(dbVoter.dataValues.elizabethWarren)}`},
+      {"name": "jayInslee", "score": `${parseFloat(dbVoter.dataValues.jayInslee)}`},
+      {"name": "joeBiden", "score": `${parseFloat(dbVoter.dataValues.joeBiden)}`},
+      {"name": "johnDelaney", "score": `${parseFloat(dbVoter.dataValues.johnDelaney)}`},
+      {"name": "johnHickenlooper", "score": `${parseFloat(dbVoter.dataValues.johnHickenlooper)}`},
+      {"name": "julianCastro", "score": `${parseFloat(dbVoter.dataValues.julianCastro)}`},
+      {"name": "kamalaHarris", "score": `${parseFloat(dbVoter.dataValues.kamalaHarris)}`},
+      {"name": "kirstenGillibrand", "score": `${parseFloat(dbVoter.dataValues.kirstenGillibrand)}`},
+      {"name": "marianneWilliamson", "score": `${parseFloat(dbVoter.dataValues.marianneWilliamson)}`},
+      {"name": "peteButtigieg", "score": `${parseFloat(dbVoter.dataValues.peteButtigieg)}`},
+      {"name": "tulsiGabbard", "score": `${parseFloat(dbVoter.dataValues.tulsiGabbard)}`}
+    ];
+
+      var sorted = _.orderBy(sortingObj, ["score"], ['desc']);
+      var hbsObj = {voter: sorted};
       res.render("results", hbsObj);
     });
   });
