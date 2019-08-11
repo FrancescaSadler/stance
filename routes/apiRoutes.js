@@ -1,39 +1,6 @@
 var db = require("../models");
 var _ = require('lodash');
 
-// var candidates = [{
-//   "id": 1,
-//   "routeName": "amyklobuchar",
-//   "candidateName": "Amy Klobuchar",
-//   "scores": "1,5,1,4,2,2,4,1,5,1,1,2,3,2,3,2,5,4,1,4,1,3,5,2,1",
-//   "createdAt": "2019-08-08T23:20:59.000Z",
-//   "updatedAt": "2019-08-08T23:20:59.000Z"
-// },
-// {
-//   "id": 2,
-//   "routeName": "andrewYang",
-//   "candidateName": "Andrew Yang",
-//   "scores": "2,2,5,2,1,1,3,1,3,5,2,4,3,4,3,3,1,5,1,1,1,5,5,2,1",
-//   "createdAt": "2019-08-08T23:21:30.000Z",
-//   "updatedAt": "2019-08-08T23:21:30.000Z"
-// },
-// {
-//   "id": 3,
-//   "routeName": "bernieSanders",
-//   "candidateName": "Bernie Sanders",
-//   "scores": "1,2,5,5,1,1,1,1,1,1,1,2,1,2,1,1,1,5,2,4,1,1,1,1,1",
-//   "createdAt": "2019-08-08T23:27:47.000Z",
-//   "updatedAt": "2019-08-08T23:27:47.000Z"
-// },
-// {
-//   "id": 4,
-//   "routeName": "betoOrourke",
-//   "candidateName": "Beto O'rourke",
-//   "scores": "1,1,1,2,2,1,3,1,3,5,2,2,3,1,1,1,3,5,2,2,1,3,5,2,1",
-//   "createdAt": "2019-08-08T23:29:00.000Z",
-//   "updatedAt": "2019-08-08T23:29:00.000Z"
-// }];
-
 module.exports = function (app) {
   // Get all examples
   app.get("/api/voters", function (req, res) {
@@ -44,7 +11,7 @@ module.exports = function (app) {
     });
   });
 
-  // Create a new example
+  // Create a new voter
   app.post("/api/voters", function (req, res) {
     // console.log("API voters route was hit");
     // console.log(req.body);
@@ -104,12 +71,6 @@ module.exports = function (app) {
     });
     
   });
-    // db.Voter.create(req.body).then(function(dbExample) {
-    //   res.json(dbExample);
-    // });
-    // db.Candidate.findAll().then(function (candidates){
-    //   console.log(candidates);
-    // })
   });
 
 
@@ -143,65 +104,6 @@ module.exports = function (app) {
     db.Candidate.create({ where: { id: req.params.id } }).then()
   })
 
-
-
-  // RESULTS
-//   app.get("/results/:id", function(req, res) {
-//     var id = req.params.id;
-//     // db.Voter.findByPk({ where: { id: req.params.id } }).then(function(dbExample) {
-//       db.Voter.findByPk(id).then(function(dbVoter) {
-
-//         console.log()
-//         // LODASH
-
-//         var hbsObj = {
-//           // voter: all the lo-dash shit
-//         };
-
-//         res.render("results", hbsObj);
-
-//       })
-//     //   res.render("example", {
-//     //     example: dbExample
-//     //   });
-//     // });
-//   });
-
-// };
-
-
-
-//=====================================================================================================
-/// this is Gwen's attempt to reuse the contacts code to render results on a handlebars results page
-// this route should add a new contact to the table
-// app.post("/api/results", function (req, res) {
-//   db.Voter.create({
-//     amyKlobuchar: req.body.amyKlobuchar,
-//     andrewYang: req.body.andrewYang,
-//     betoOrourke: req.body.betoOrourke,
-//     coryBooker: req.body.coryBooker,
-//     donaldTrump: req.body.donaldTrump,
-//     elizabethWarren: req.body.elizabethWarren,
-//     jayInslee: req.body.jayInslee,
-//     joeBiden: req.body.joeBiden,
-//     johnDelaney: req.body.johnDelaney,
-//     johnHickenloop: req.body.johnHickenloop,
-//     julianCastro: req.body.julianCastro,
-//     kamalaHarris: req.body.kamalaHarris,
-//     kristenGillibrand: req.body.kristenGillibrand,
-//     marianneWilliamson: req.body.marianneWilliamson,
-//     peteButtigieg: req.body.peteButtigieg,
-//     tulsiGabbard: req.body.tulsiGabbard,
-
-//   }).then(function (newVoter) {
-//     console.log("New Voter Result:");
-//     console.log(newVoter);
-//     res.json(newVoter);
-//   }).catch(function (err) {
-//     console.log(err);
-//   });
-// });
-  //==================================================================================================
 
   app.get("/results/:id", function(rec,res){
     db.Voter.findOne({
