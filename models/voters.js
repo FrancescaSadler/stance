@@ -52,7 +52,7 @@ module.exports = function (sequelize, DataTypes) {
     johnDelaney: {
       type: DataTypes.STRING
     },
-    johnHickenloop: {
+    johnHickenlooper: {
       type:DataTypes.STRING
     },
     julianCastro: {
@@ -61,7 +61,7 @@ module.exports = function (sequelize, DataTypes) {
     kamalaHarris: {
       type: DataTypes.STRING
     },
-    kristenGillibrand: {
+    kirstenGillibrand: {
       type: DataTypes.STRING
     },
     marianneWilliamson: {
