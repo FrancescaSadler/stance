@@ -7,7 +7,6 @@ h1 {
   font-weight: bold;
   margin-left: 100px;
   margin-bottom: 0px;
- 
   font-size: 200px;
 }
 
@@ -16,8 +15,8 @@ h1 {
   margin-top: 0px;
 }
 
-.left { 
-  margin-left: 445px; 
+#left { 
+  margin-left: 50px; 
   margin-top: 100px;
 }
 
@@ -56,4 +55,51 @@ h6 {
 
 #footer { 
   background-color: lightgray;
+}
+
+.card-text {
+  color:red;
+}
+
+#footerText { 
+  text-align: center;
+}
+.container {
+  position: relative;
+  width: 50%;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #483D8B;
+  max-width: 385px;
+  max-height: 212px;
+  margin-top: 30px;
+  margin-left: 65px;
+  border-radius: 25px;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
