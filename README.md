@@ -32,7 +32,9 @@ To start, voters take a brief quiz covering a broad swath of political hot butto
 - Twitter API
 - Web Scraper Chrome Extension
 - GrabzIt
- 
+
+STANCE is currently deployed on Heroku. [Click to get political!](https://guarded-spire-35837.herokuapp.com/)
+
 The development team includes: [Francesca Sadler](https://github.com/FrancescaSadler), [Savannah Israel](https://github.com/savannahisrael), [Gwen Gelsinon](https://github.com/ggelsinon), and [Emily Frost](https://github.com/emfrost3711).
 
 *The developers are indebted to the website [isidewith.com](www.isidewith.com) for use of their initial questions and candidate responses.*
